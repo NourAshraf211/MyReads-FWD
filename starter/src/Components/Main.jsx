@@ -24,6 +24,7 @@ const Main = (props) => {
             <Shelf
                 shelfTilte = "Read"
                 books = {allBooks.filter(book => book.shelf === "read")}
+                changeShelf={changeShelf}
             />
           </div>
           <div className="open-search">

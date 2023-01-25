@@ -4,6 +4,7 @@ import Main from "./Components/Main";
 import Search from "./Components/Search";
 import * as API from "./BooksAPI"
 import "./App.css";
+import NotFound from "./Components/NotFound";
 
 function App() {
   const [allBooks, setAllBooks] = useState([]);
@@ -15,11 +16,13 @@ function App() {
         setAllBooks(books);
     };
     callAPI();
-  }, [flip]);
+  }, []);
 
   const changeShelf = async (book, shelf) => {
-    await API.update(book, shelf);
-    setFlip(!flip);
+    book.shelf = shelf;
+    API.update(book, shelf).then(() => {
+      setAllBooks([...allBooks.filter((b) => b.id !== book.id), book]);
+    });
   }
 
   return (
@@ -33,6 +36,7 @@ function App() {
           allBooks={allBooks}
           changeShelf={changeShelf}
         />} />
+        <Route path="*" element={<NotFound />}/>
       </Routes>
     </div>
   );

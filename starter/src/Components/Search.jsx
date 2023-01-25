@@ -7,13 +7,20 @@ import Book from './Book';
 const Search = (props) => {
     const [input, setInput] = useState("");
     const [books, setBooks] = useState([]);
+    const [results, setResults] = useState(true);
 
     const searchBook = async (e) => {
+      if(e.currentTarget.value && e.currentTarget.value !== " "){
+        setResults(true);
         setInput(e.currentTarget.value);
         const results = await API.search(e.currentTarget.value);
         console.log(results);
         if(results.error) return;
         setBooks(results);
+      }else{
+        setInput(e.currentTarget.value);
+        setResults(false);
+      }
     }
 
     return (
@@ -25,7 +32,7 @@ const Search = (props) => {
             <div className="search-books-input-wrapper">
               <input
                 type="text"
-                value={input}
+                value={input || ''}
                 placeholder="Search by title, author, or ISBN"
                 onChange={(e) => searchBook(e)}
               />
@@ -33,13 +40,14 @@ const Search = (props) => {
           </div>
           <div className="search-books-results">
             <ol className="books-grid">
-                {(books || []).map(book => (
+                {results ? (books || []).map(book => (
                     <Book
                         key={book.id}
                         bookData = {book}
+                        allBooks = {props.allBooks}
                         changeShelf = {props.changeShelf}
                     />
-                ))}
+                )) : null}
             </ol>
           </div>
         </div>
