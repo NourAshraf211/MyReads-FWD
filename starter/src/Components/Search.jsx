@@ -41,12 +41,13 @@ const Search = (props) => {
           <div className="search-books-results">
             <ol className="books-grid">
                 {results ? (books || []).map(book => (
-                    <Book
-                        key={book.id}
+                    <li key={book.id}>
+                      <Book
                         bookData = {book}
                         allBooks = {props.allBooks}
                         changeShelf = {props.changeShelf}
-                    />
+                      />
+                    </li>
                 )) : null}
             </ol>
           </div>

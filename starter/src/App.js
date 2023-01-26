@@ -5,10 +5,10 @@ import Search from "./Components/Search";
 import * as API from "./BooksAPI"
 import "./App.css";
 import NotFound from "./Components/NotFound";
+import BookDetailes from "./Components/BookDetailes";
 
 function App() {
   const [allBooks, setAllBooks] = useState([]);
-  const [flip, setFlip] = useState(true);
 
   useEffect(() => {
     const callAPI = async () => {
@@ -36,6 +36,7 @@ function App() {
           allBooks={allBooks}
           changeShelf={changeShelf}
         />} />
+        <Route path="/book/:bookId" element={<BookDetailes changeShelf={changeShelf}/>}/>
         <Route path="*" element={<NotFound />}/>
       </Routes>
     </div>

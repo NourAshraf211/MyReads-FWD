@@ -121,6 +121,10 @@ body,
   padding: 10px 15px;
   text-align: left;
 }
+.books-grid li a{
+  text-decoration: none;
+  color: unset;
+}
 
 .book {
   width: 140px;
@@ -176,6 +180,91 @@ body,
   font-size: 0.8em;
 }
 
+/* Book Detailes page */
+.Container{
+  width: 80%;
+  padding: 75px 0px;
+    height: calc(100vh - 68px);
+    margin: auto;
+    display: flex;
+    align-items: flex-start;
+}
+.Container .close-search{
+  position: absolute;
+  top: 5px;
+  background-color: transparent;
+}
+.Container .book-cover{
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 210px;
+  height: 300px;
+  margin-inline-end: 40px;
+}
+.Container .book-info{
+  height: 100%;
+  width: 75%;
+  overflow-y: hidden;
+}
+.Container .book-header{
+  position: relative;
+}
+.Container .book-header .book-shelf-changer{
+  bottom: unset;
+  top: 0;
+}
+.Container .book-header .bookTitle{
+  margin: 0px;
+}
+.Container .book-header .bookAuthors{
+  margin: 0px;
+  font-size: 15px;
+    color: #999;
+}
+.Container .book-description{
+  max-height: 100px;
+  overflow-y: auto;
+}
+.Container .book-data{}
+.Container .book-data .one{
+  display: flex;
+  align-items: center;
+}
+.Container .book-data .one p{
+  margin: 0px;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+.Container .book-data .one p:first-of-type{
+  margin-inline-end: 10px;
+  font-weight: bold;
+}
+.Container .book-data .one span{
+  background-color: #e0e0e0;
+    border-radius: 50px;
+    font-size: 12px;
+    margin-bottom: 5px;
+    padding: 3px 10px;
+    margin-inline-end: 10px;
+}
+.Container .book-links{
+  margin-top: 20px;
+}
+.Container .book-links a{
+  text-decoration: none;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    margin-inline-end: 10px;
+}
+
+.Container .book-links a:first-of-type{
+  background-color: #2e7c31;
+}
+
+.Container .book-links a:last-of-type{
+  background-color: #cb9636;
+}
 
 /* notfound page */
 .notfound-page{

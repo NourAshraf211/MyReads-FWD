@@ -9,11 +9,12 @@ const Shelf = (props) => {
                 <div className="bookshelf-books">
                   <ol className="books-grid">
                     {(books || []).map(book => (
-                        <Book
-                            key={book.id}
+                        <li key={book.id}>
+                          <Book
                             bookData = {book}
                             changeShelf = {changeShelf}
-                        />
+                          />
+                        </li>
                     ))}
                   </ol>
                 </div>
