@@ -36,13 +36,13 @@ const BookDetailes = (props) => {
                             <h2 className='bookTitle'>{book.title}</h2>
                             <p className='bookAuthors'>
                                 {(book.authors || []).map(author => (
-                                    <span>{author}</span>
+                                    <span key={author}>{author}</span>
                                 ))}
                             </p>
                         </div>
                         <div className="book-shelf-changer">
                             <select value={book?.shelf} onChange={(e) => props.changeShelf(book, e.currentTarget.value)}>
-                                <option value="none" disabled>Move to...</option>
+                                <option value="" disabled>Move to...</option>
                                 <option value="wantToRead">Want to Read</option>
                                 <option value="currentlyReading">Currently Reading</option>
                                 <option value="read">Read</option>
@@ -71,7 +71,7 @@ const BookDetailes = (props) => {
                         <div className='one categories'>
                             <p>CATEGORIES</p>
                             {(book.categories || []).map(category => (
-                                <span>{category}</span>
+                                <span key={category}>{category}</span>
                             ))}
                         </div>
                     </div>

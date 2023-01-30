@@ -6,9 +6,9 @@ const Book = (props) => {
 
 
     return (
-        <Link to={"/book/" + bookData.id}>
-            <div className="book">
+        <div className="book">
                 <div className="book-top">
+                    <Link to={"/book/" + bookData.id}>
                     <div
                     className="book-cover"
                     style={{
@@ -18,9 +18,10 @@ const Book = (props) => {
                         `url(${bookData?.imageLinks?.smallThumbnail || ""})`,
                     }}
                     ></div>
+                    </Link>
                     <div className="book-shelf-changer">
-                    <select value={bookData?.shelf || allBooks.find(book => book.id === bookData.id)?.shelf} onChange={(e) => changeShelf(bookData, e.currentTarget.value)}>
-                        <option value="none" disabled>Move to...</option>
+                    <select value={bookData?.shelf || allBooks.find(book => book.id === bookData.id)?.shelf || "none"} onChange={(e) => changeShelf(bookData, e.currentTarget.value)}>
+                        <option value="" disabled>Move to...</option>
                         <option value="wantToRead">Want to Read</option>
                         <option value="currentlyReading">Currently Reading</option>
                         <option value="read">Read</option>
@@ -31,7 +32,6 @@ const Book = (props) => {
                 <div className="book-title">{bookData?.title || ""}</div>
                 <div className="book-authors">{(bookData?.authors || []).map(auth => auth) || ""}</div>
             </div>
-        </Link>
      );
 }
  

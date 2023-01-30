@@ -14,7 +14,6 @@ const Search = (props) => {
         setResults(true);
         setInput(e.currentTarget.value);
         const results = await API.search(e.currentTarget.value);
-        console.log(results);
         if(results.error) return;
         setBooks(results);
       }else{
