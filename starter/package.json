@@ -17,8 +17,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy" : "npm run build",
-    "deploy" : "gh-pages -d build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -41,5 +41,5 @@
   "devDependencies": {
     "gh-pages": "^5.0.0"
   },
-  "homepage": "http://NourAshraf211.github.io/MyReads-FWD"
+  "homepage": "https://nourashraf211.github.io/MyReads-FWD"
 }
